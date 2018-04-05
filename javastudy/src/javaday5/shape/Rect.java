@@ -1,10 +1,10 @@
 package javaday5.shape;
 
 public class Rect {
-	private Point leftUp;
-	private Point rightDown;
-	private int width;
-	private int height;
+	protected Point leftUp;
+	protected Point rightDown;
+	protected int width;
+	protected int height;
 	
 	public Point getleftUp() {
 		return leftUp;
@@ -32,10 +32,10 @@ public class Rect {
 	}
 
 	
-	private void calWidth() {
+	protected void calWidth() {
 		width = (rightDown.getX() - leftUp.getX());
 	}
-	private void calHeight() {
+	protected void calHeight() {
 		height = Math.abs(rightDown.getY()-leftUp.getY());
 	}
 	public Rect(){
@@ -63,8 +63,26 @@ public class Rect {
 		leftUp.print();
 		System.out.print("우하의 점 :");
 		rightDown.print();
+		
 		System.out.println("가로 :" + width);
 		System.out.println("세로 :" + height);
+	
+		
+	}
+	public void resize(int width, int height) {
+		this.width = width;
+		this.height = height;
+		this.rightDown.move(this.leftUp.getX()+width,
+							this.leftUp.getY()-height);
+		
+		
+		
+	}
+	public void move(int x, int y) {
+		this.leftUp.move(this.leftUp.getX()+x,this.leftUp.getY()+y);
+		
+		this.rightDown.move(this.rightDown.getX()+x, this.rightDown.getY()+y);
+		
 	}
 }
 
