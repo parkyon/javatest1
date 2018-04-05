@@ -43,7 +43,7 @@ public class Calculator {
 		this.setCal(num1, num2, operator);
 	}
 	
-	public void sum() {
+	public void sum() { //매개변수가 필요한 이유는 내가 알지 못하기 때문에 알고 있으면 선언 할 필요가 없다.
 		result = num1 + num2;
 	}
 	public void sub( ) {
