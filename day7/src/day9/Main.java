@@ -7,8 +7,8 @@ public class Main {
 	public static void main(String [] args) {
 		
 		int mode = 0;//menu 기능 어떤걸 하기 위해 입력 받을 값
-		student1 [] std = new student1[30]; //관리할 학생들의 배열 갯수만 정의
-		int cnt = 0; // 현재 까지 추가된 학생의 수
+		//student1 [] std = new student1[30]; //관리할 학생들의 배열 갯수만 정의->매니저가 담당
+		//int cnt = 0; // 현재 까지 추가된 학생의 수 ->매니저가 담당
 		Manager manager = new Manager();
 		Scanner scan = new Scanner(System.in);
 				do {     //한번 이상 무조건 실행해야하므로 do while 문을 사용함 졸요 버튼 누르기전에는 계속 실행
