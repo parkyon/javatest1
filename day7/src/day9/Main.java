@@ -9,6 +9,7 @@ public class Main {
 		int mode = 0;//menu 기능 어떤걸 하기 위해 입력 받을 값
 		student1 [] std = new student1[30]; //관리할 학생들의 배열 갯수만 정의
 		int cnt = 0; // 현재 까지 추가된 학생의 수
+		Manager manager = new Manager();
 		Scanner scan = new Scanner(System.in);
 				do {     //한번 이상 무조건 실행해야하므로 do while 문을 사용함 졸요 버튼 누르기전에는 계속 실행
 					menu();
@@ -36,7 +37,7 @@ public class Main {
 						int math= scan.nextInt();
 						
 						
-						std[cnt++] = new student1(name,grade,classNumber, number, kor, eng, math);
+						manager.addStudent(name, grade, classNumber, number, kor, eng, math);
 						break;
 					case 2 :  //학생정보 수정
 						System.out.println("바꿀 학생의 학년 반 번호 이름을 적으시오");
@@ -48,40 +49,28 @@ public class Main {
 						System.out.println("학생 번호을 입력 : ");
 						int searchnumber= scan.nextInt();
 						// 원래 값
-						
-						for(int i =0; i<cnt; i++) {
-							if(std[i].compareTo(searchgrade, serarchclassNumber,searchnumber)) {
-								
-								
-								System.out.println("수정할 학생 이름 : ");
-								String modifyName = scan.next();
-								System.out.println("수정할 학생 국어 : ");
-								int modifykor = scan.nextInt();
-								System.out.println("수정할 학생 영어 : ");
-								int modifyeng = scan.nextInt();
-								System.out.println("수정할 학생 수학 : ");
-								int modfimath = scan.nextInt();
-								// 수정할 값
-								
-								std[i].setName(modifyName); //해당하는 변수에 직접 갈 수 없므로 set으로 함 즉 name의 값을 modfyname의 값으로 바꾼다는 것임
-								std[i].setEng(modifyeng);
-								std[i].setMath(modfimath);
-								std[i].setKor(modifykor);
-								
-								//지정
-							}
-							
-						}
-							
+						System.out.println("수정할 학생 이름 : ");
+						String modifyName = scan.next();
+						System.out.println("수정할 학생 국어 : ");
+						int modifykor = scan.nextInt();
+						System.out.println("수정할 학생 영어 : ");
+						int modifyeng = scan.nextInt();
+						System.out.println("수정할 학생 수학 : ");
+						int modfimath = scan.nextInt();
+						// 수정할 값
+			
+						manager.modifyStudent(searchgrade, serarchclassNumber, searchnumber, modifyName, modifyeng, modfimath, modifykor);	
 						
 						break;
 					case 3 : //학생 정보 출력
-						for(int i=0; i<cnt; i++) {
-						std[i].printInfo();
 						
+						manager.printStudent();
+						/*for(int i=0; i<cnt; i++) {
+						std[i].printInfo();
+						*/
 						//for(Student s : std){ if(s !=null)s.printInfo(); 위의 for문의 향상된 for문
 							
-						}
+						
 						
 						break;
 					case 4 : //종료
