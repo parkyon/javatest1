@@ -105,7 +105,11 @@ class Lottoim implements LottoInterface {
 		else
 			return -1;
 	}
-
+	public void prinArr(int[] arr) {
+		for(int i= 0; i<arr.length; i++)
+			System.out.print(arr[i] + "  ");
+		System.out.println();
+	}
 }
 	
 
